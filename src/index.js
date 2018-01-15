@@ -31,6 +31,6 @@ function lodashExample() {
 }
 
 document.body.appendChild(component());
-$(".btn").addClass("btn-primary");
+$(".btn").addClass("btn-primary large");
 $(".btn").on("click", printMe);
 lodashExample();
