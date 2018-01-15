@@ -1,0 +1,7 @@
+.hello {
+  color: red;
+  background: url("./icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-family: "Ubuntu", sans-serif;
+}
