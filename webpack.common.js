@@ -10,7 +10,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      title: "Production"
+      title: "Webpack Starter Template"
     }),
     new ExtractTextPlugin({
       filename: "styles.css"
