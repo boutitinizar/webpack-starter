@@ -1,22 +1,18 @@
 ("use strict");
 const path = require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   entry: {
-    app: "./src/index.js"
+    app: "./src/index.js",
+    print: "./src/print.js"
   },
-  plugins: [
-    new CleanWebpackPlugin(["dist"]),
-    new HtmlWebpackPlugin({
-      title: "Webpack Starter Template"
-    }),
-    new ExtractTextPlugin({
-      filename: "styles.css"
-      // allChunks: true
-    })
-  ],
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist")
+  },
   module: {
     rules: [
       {
@@ -63,8 +59,17 @@ module.exports = {
       }
     ]
   },
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist")
-  }
+  resolve: {},
+  devtool: "source-map",
+  devServer: {
+    contentBase: "./dist"
+  },
+  plugins: [
+    new CleanWebpackPlugin(["dist"]),
+    new ExtractTextPlugin({
+      filename: "styles.css"
+      // allChunks: true
+    }),
+    new HtmlWebpackPlugin({ title: "output" })
+  ]
 };

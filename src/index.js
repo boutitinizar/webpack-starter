@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import printMe from "./print.js";
 import "./style.css";
+import Icon from "./icon.png";
+import { request } from "http";
 function component() {
   var element = document.createElement("div");
   var btn = document.createElement("button");
