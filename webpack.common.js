@@ -14,7 +14,15 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      title: "Production"
+      title: "Production",
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeEmptyElements: true,
+        removeOptionalTags: true,
+        removeRedundantAttributes: true
+      },
+      template: "./src/template.html"
     }),
     extractSass
     // new ExtractTextPlugin({
