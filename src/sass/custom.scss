@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./media.scss";
+
+$dark-body: #03111e;
+$light-body: #dedede;
+
+$light-font: #fff;
+$dark-font: #212121;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+body {
+  background-color: $light-body;
+  color: $dark-font;
+  p {
+    color: #ddd;
+  }
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #ff0000;
+  @include border-radius(2px);
+  &:hover {
+    background-color: #008aff;
+    transition: 0.3s all;
+  }
+}
+
+article {
+  p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    font-size: 12px;
+  }
+}

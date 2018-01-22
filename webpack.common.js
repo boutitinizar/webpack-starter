@@ -3,6 +3,10 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+const extractSass = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+  disable: process.env.NODE_ENV === "development"
+});
 module.exports = {
   entry: {
     app: "./src/index.js"
@@ -12,10 +16,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Production"
     }),
-    new ExtractTextPlugin({
-      filename: "styles.css"
-      // allChunks: true
-    })
+    extractSass
+    // new ExtractTextPlugin({
+    //   filename: "styles.css"
+    //   // allChunks: true
+    // })
   ],
   module: {
     rules: [
@@ -55,6 +60,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
       },
       {
         //fonts
