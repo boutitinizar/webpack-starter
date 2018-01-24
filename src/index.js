@@ -3,53 +3,32 @@ import _ from "lodash";
 import $ from "jquery";
 import "bootstrap"; //js
 
-require("./sass/custom.scss");
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./sass/custom.scss";
 
 import printMe from "./print.js";
-import "./style.css";
 
 if (process.env.NODE_ENV !== "production") {
   console.log("Looks like we are in development mode!");
   document.title = "Debug mode on";
 }
 
-function component() {
-  var element = document.createElement("div");
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("hello");
-  console.log(element);
-  $(".hello").addClass("header");
-
-  return element;
-}
-
-function btn() {
-  var btn = document.createElement("button");
-  btn.classList.add("btn");
-  btn.innerHTML = "click me";
-  return btn;
-}
-
-function lodashExample() {
-  var arr = [1, 2, 3, 4];
-  var x = _.tail(arr);
-  console.log("original arr: " + arr + " .tail of arr: " + x);
-}
-
 // lodashExample();
-var body = document.body.appendChild(container());
-body.appendChild(component()).appendChild(boxgenerator());
-$(".btn").addClass("btn-primary large");
 
-function container() {
-  var container = document.createElement("div");
-  container.classList.add("container");
-  return container;
-}
+$(".container").append(boxgenerator());
 
 function boxgenerator() {
-  var box = document.createElement("div");
-  box.classList.add("box");
-  return box;
+  var arr = [];
+  // var row = "<div class='row'>";
+  for (let index = 0; index < 12; index++) {
+    var random = Math.floor(Math.random() * 11);
+    var column = $("<div class='box'></div>");
+    random = "<div class='value'>" + random + "</div>";
+    column = column.append(random);
+
+    arr.push(column);
+  }
+
+  console.table(arr);
+  return arr;
 }

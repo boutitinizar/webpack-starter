@@ -1,8 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
-@import "./media.scss";
+// @import "./media.scss";
 
 $dark-body: #03111e;
-$light-body: #dedede;
+$light-body: #fff;
 
 $light-font: #fff;
 $dark-font: #212121;
@@ -14,35 +14,28 @@ $dark-font: #212121;
   border-radius: $radius;
 }
 
-body {
-  background-color: $light-body;
-  color: $dark-font;
-  p {
-    color: #ddd;
-  }
-}
-
 .box {
-  width: 100px;
-  height: 100px;
-  background-color: #ff0000;
+  background-color: #fff;
+  display: inline-block;
+  border: 2px solid #008aff;
+  margin: 2px;
+  width: percentage($number: 3/10);
+  height: 80px;
   @include border-radius(2px);
   &:hover {
     background-color: #008aff;
     transition: 0.3s all;
   }
-}
-
-article {
-  p {
-    margin: 0;
-    line-height: 1.5;
-    font-size: 16px;
+  @media screen and (device-width: 320px) {
+    // width: percentage($number: 3/10);
   }
-  ul {
-    list-style: none;
-  }
-  li {
-    font-size: 12px;
+  .value {
+    font-size: 32px;
+    margin: 0 auto;
+    padding: 5px;
+    line-height: 60px;
+    top: 25%;
+    text-align: center;
+    vertical-align: middle;
   }
 }

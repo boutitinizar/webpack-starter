@@ -18,7 +18,7 @@ module.exports = {
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeEmptyElements: true,
+        // removeEmptyElements: true,
         removeOptionalTags: true,
         removeRedundantAttributes: true
       },
