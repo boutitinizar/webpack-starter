@@ -17,13 +17,14 @@ $dark-font: #212121;
 .box {
   background-color: #fff;
   display: inline-block;
-  border: 2px solid #008aff;
+  // border: 2px solid #008aff;
   margin: 2px;
   width: percentage($number: 3/10);
   height: 80px;
   @include border-radius(2px);
   &:hover {
     background-color: #008aff;
+    color: #fff;
     transition: 0.3s all;
   }
   @media screen and (device-width: 320px) {
@@ -37,5 +38,8 @@ $dark-font: #212121;
     top: 25%;
     text-align: center;
     vertical-align: middle;
+    small {
+      font-size: 50%;
+    }
   }
 }
